@@ -41,8 +41,14 @@ function carregarInfoUsuario(){
 
 function carregaAgencias(){
    fetch("http://localhost:8088/agencias")
-    .then(res => res.json())
-    .then(listaAgencias => preencheComboBox(listaAgencias)); 
+    .then(res => res.json())    // equivale a var res = fetch
+    .then(listaAgencias => preencheComboBox(listaAgencias)); // equivale a combinar a linha anterior com listaAgencia = res.json()
+
+    /*
+    var res = fetch("......");
+    var listaAgencias = res.json();
+    preencheComboBox(listaAgencias);
+    */
 }
 
 function preencheComboBox(listaAgencias){
@@ -57,8 +63,6 @@ function preencheComboBox(listaAgencias){
     }
     var novoSelect = templateSelect.replace("{{OPCOES}}", opcoes);
     document.getElementById("optionAgencia").innerHTML = novoSelect;
-
-    console.log ("teste");
 }
 
 function gerarRelatorio(){

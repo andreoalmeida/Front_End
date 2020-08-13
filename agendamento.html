@@ -10,66 +10,93 @@
         <title>Agendamento Atendimento Itau&reg;| Relatorios</title>
     
     </head>
-    <body onload="carregaAgencias()">
+    <body onload="carregarAgencias()">
         <div class="container">
-
-            <div class="row" > 
-                <div class="col-12 text-center">
-                    <h3 id="titulo"> Sistema de Agendamento do Cliente </h3>
+            <div class="row">
+                <div class="col-12">
+                    <h3> Agende seu Horario conosco</h3>
                 </div>
             </div>
 
-            <div class="row" >
-
-                <div class="form-group form-check col-12">
-                    <label class="form-check-label" for="selectAgencia">Nome</label>
-                    <input type="text" id="txtCliente" class="form-control">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="txtNome">Seu Nome</label>
+                        <input type="text" class="form-control" id="txtNome" maxlength="100" required>
+                      </div>
                 </div>
             </div>
 
-            <div class="row" >
-                <div class="form-group form-check col-12">
-                    <label class="form-check-label" for="selectAgencia">Email</label>
-                    <input type="email" id="emailtCliente" class="form-control">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="txtEmail">Seu Email</label>
+                        <input type="email" class="form-control" id="txtEmail" maxlength="100">
+                      </div>
                 </div>
             </div>
 
-            <div class="row" >
-                <div class="form-group form-check col-12">
-                    <label class="form-check-label" for="selectCliente">Celular/Whatsapp</label>
-                    <input type="text" id="celularCliente" class="form-control">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="txtCelular">Seu Celular/Whastapp</label>
+                        <input type="phone" class="form-control" id="txtCelular" maxlength="20">
+                      </div>
                 </div>
             </div>
-        
-            <div class= "row">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xm-12">
-                <label class="form-check-label" for="selectData">Data</label>
-                 <input type="date" id="dataAgendamento" class="form-control">
-                </div>
-                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xm-12">
-                 <label class="form-check-label" for="selectAgencia">Agencia</label>
-                <div id="optionAgencia">****</div>
-                </div>
 
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="txtData">Data do Agendamento</label>
+                        <input type="date" class="form-control" id="txtData">
+                      </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="optionAgencia">Selecione sua Agencia</label>
+                        <div id="optionAgencia"> **DADOS DAS AGENCIAS - Carregando ***</div>
+                      </div>
+                    
+                </div>
             </div>
 
-            <div class= "row">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xm-12">
-                <label class="form-check-label" for="selectData">Hora Inicio</label>
-                 <div id="optionHora">****</div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="horaInicio">Horario do Agendamento</label>
+                        <div id="horaInicio"> HH:MM Inicio </div>
+                      </div>
                 </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xm-12">
-                <label class="form-check-label" for="selectData">Hora Fim</label>
-                <input type="text" id="horaFim" class="form-control">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="txtHora">Término Previsto</label>
+                        <input type="time" id="txtHoraFim" value="HH:mm" class="form-control" readonly>
+                      </div>
                 </div>
-
             </div>
-            <button type="button" class="btn btn-primary" onclick="autenticar()">Cadastrar</button>
-        </div>
-        
+
+            
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="txtObs">Alguma Observacao?</label>
+                        <input type="text" class="form-control" id="txtObs" maxlength="255">
+                      </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <button type="button" class="btn btn-primary" onclick="enviarDados()">Enviar Dados</button>
+                </div>
+            </div>
+
+
         </div>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     </body>
+</html>
