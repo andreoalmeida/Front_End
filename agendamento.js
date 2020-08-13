@@ -5,7 +5,7 @@ function carregaAgencias(){
  }
  
  function preencheComboBox(listaAgencias){
-     var templateSelect = `<select class="form-control" id="selectAg"> {{OPCOES}} </select> `;
+     var templateSelect = `<select class="form-control" id="selectAg" onClick="carregarHoras()"> {{OPCOES}} </select> `;
      var templateOption = `<option value="{{VALOR}}"> {{NOME}} </option>`;
      
      var opcoes = "";
@@ -20,8 +20,12 @@ function carregaAgencias(){
  }
 
 function carregarHoras(){
-
-    fetch("http://localhost:8088/agencias")
+  //  var agencia = document.getElementById("selectAg").onselect;
+    var select = document.getElementById('selectAg');
+	var value = select.options[select.selectedIndex].value;
+	console.log(value);
+ //   console.log (agencia);
+    fetch("localhost:8088/agendamentos/filtrarporagencia?agencia={value}")
     .then(res => res.json())
     .then(listaHoras => preencheComboHoraIncial(listaHoras)); 
 }
@@ -39,5 +43,5 @@ function carregarHoras(){
      var novoSelect = templateSelect.replace("{{OPCOES}}", opcoes);
      document.getElementById("optionHora").innerHTML = novoSelect;
 
-
+     
  }
