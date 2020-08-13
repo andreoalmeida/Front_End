@@ -3,25 +3,37 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="index.css">
         <script type="text/javascript" src="index.js"></script>
-        <title> ISIDROCorp&reg;| Login </title>
+        <title> ANDRECorp&reg;| Login </title>
     </head>
     <body>
         <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3>Autentique-se</h3>
+                </div>
+            </div>
             
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <div class="row" id="formulario">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="txtEmail">Seu Email</label>
+                        <input type="email" class="form-control" id="txtEmail" aria-describedby="emailHelp">
+                        <small id="emailHelp" class="form-text text-muted">Também odiamos SPAM :)</small>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="txtSenha">Sua senha</label>
+                        <input type="password" class="form-control" id="txtSenha">
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="autenticar()">Enviar Dados</button>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+            <div class="row">
+                <div class="col-12" id="msgERRO">
+                   
+                </div>
             </div>
-            
-            
-            
-            <button type="submit" class="btn btn-primary">Submit</button>
             
 
         </div>
