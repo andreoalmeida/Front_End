@@ -140,5 +140,48 @@ function adicionarDiasData(dias){
             }
 
     }
-    console.log(dataVenc.getDate() + "/" + (dataVenc.getMonth() + 1) + "/" + dataVenc.getFullYear());    
+}
+function enviarDados(){
+    var txtNome    = document.getElementById("txtNome").value;
+    var txtEmail   = document.getElementById("txtEmail").value;
+    var txtCelular = document.getElementById("txtCelular").value;
+    var txtData    = document.getElementById("txtData").value; 
+    var txtNovaData = txtData.substr(8,2)+"/"+txtData.substr(5,2)+"/"+txtData.substr(0,4);
+    var txtHora    = document.getElementById("txtHoraInicio").value; 
+    var txtObs     = document.getElementById("txtObs").value;
+    var txtAG      = listaAgencias[pos].id;
+    
+    var msgBody = {
+        nomeCliente : txtNome,
+        emailCliente: txtEmail,
+        celularCliente : txtCelular,
+        dataAgendamento : txtNovaData,
+        horaAgendamento : txtHora,
+        observacoes : txtObs,
+        agencia :{
+                id: txtAG
+        }
+    };
+
+    console.log(msgBody);
+
+    var cabecalho = {
+        method : "POST",
+        body : JSON.stringify(msgBody),
+        headers : {
+            "Content-type":"application/json"
+        }
+    }
+
+    fetch("http://localhost:8088/agendamentos/novo", cabecalho)
+        .then(res => trataResultado(res));
+}
+
+function trataResultado(res){
+    if (res.status == 201){
+        res.json().then(agendamento => geraProtocolo(agendamento));
+    }
+    else{
+        alert("Problemas ao enviar sua solicitacao - Entre em contato com SAC");
+    }
 }
