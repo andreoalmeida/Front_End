@@ -2,7 +2,7 @@ var listaDeAgencias;
 var pos=0;
 
 function carregarAgencias(){
-
+    adicionarDiasData(1);
     fetch("http://localhost:8088/agencias")
        .then(res => res.json())
        .then(lista => preencheAgencias(lista));
@@ -111,4 +111,34 @@ function trataResultado(res){
 function geraProtocolo(agendamento){
     alert("Agendamento Concluido. Numero do Protocolo "+agendamento.numSeq);
 
+}
+
+function adicionarDiasData(dias){
+    var hoje        = new Date();
+    var dataVenc    = new Date(hoje.getTime() + (dias * 24 * 60 * 60 * 1000));
+    if ((dataVenc.getMonth() + 1)<10){
+
+        if(dataVenc.getDate()<10){
+        var input = document.getElementById("txtData");
+        input.setAttribute("min", dataVenc.getFullYear() + "-0" + (dataVenc.getMonth() + 1) + "-0" + dataVenc.getDate());
+        }
+        else{
+            var input = document.getElementById("txtData");
+        input.setAttribute("min", dataVenc.getFullYear() + "-0" + (dataVenc.getMonth() + 1) + "-" + dataVenc.getDate());
+
+        }
+    }
+    else{
+        if(dataVenc.getDate()<10){
+            var input = document.getElementById("txtData");
+            input.setAttribute("min", dataVenc.getFullYear() + "-" + (dataVenc.getMonth() + 1) + "-0" + dataVenc.getDate());
+            }
+            else{
+                var input = document.getElementById("txtData");
+            input.setAttribute("min", dataVenc.getFullYear() + "-" + (dataVenc.getMonth() + 1) + "-" + dataVenc.getDate());
+    
+            }
+
+    }
+    console.log(dataVenc.getDate() + "/" + (dataVenc.getMonth() + 1) + "/" + dataVenc.getFullYear());    
 }

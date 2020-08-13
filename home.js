@@ -5,6 +5,9 @@
    2 - se não existir esse item? retorna para o index (sinal que não tem usuário conectado)
 */
 
+const { ConsoleReporter } = require("jasmine");
+const { Console } = require("console");
+
 var templateFoto = `<img src="{{LINKFOTO}}" width="100%">`;
 var templateInfo = `Nome: {{NOME}} <br>
                     Email: {{EMAIL}} <br>
